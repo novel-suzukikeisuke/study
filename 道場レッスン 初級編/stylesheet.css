@@ -71,3 +71,47 @@ header p {
 .contents-item p {
     font-size: 24px;
 }
+
+.main-form {
+    margin: 100px 80px;
+}
+
+.main-form h3 {
+    font-size: 28px;
+    padding-bottom: 15px;
+    margin-bottom: 50px;
+    border-bottom: 2px solid #dee7ec;
+}
+
+input, textarea {
+    width: 400px;
+    margin: 10px 0 30px 0;
+    padding: 20px;
+    font-size: 18px;
+    border: 1px solid #dee7ec;
+}
+
+.form-submit {
+    background-color: #dee7ec;
+    color: #889eab;
+}
+
+footer {
+    height: 120px;
+    padding:  40px;
+    color: #fff;
+    background-color: #2f5167;
+}
+
+.footer-logo {
+    font-size: 32px;
+    float: left;
+}
+
+.footer-list {
+    float: right;
+}
+
+.footer-list li {
+    padding-bottom: 20px;
+}
