@@ -1,0 +1,58 @@
+/* タブレット向けレイアウト */
+
+/* ブレイクポイントが1000px以下のときのメディアクエリを設定してください */
+@media (max-width: 1000px) {
+    /* lessonクラスのCSSを指定してください */
+    .lesson {
+        width: 50%;
+        margin-bottom: 50px;
+    }
+
+    .heading h1 {
+        font-size: 32px;
+    }
+
+    .top-wrapper h2 {
+        font-size: 20px;
+    }
+    
+  }
+
+@media (max-width: 670px) {
+    .lesson {
+        width: 100%;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .facebook {
+        margin-bottom: 10px;
+    }
+
+    .top-wrapper {
+        text-align: left;
+        padding-top: 130px;
+    }
+
+    .top-wrapper h1 {
+        font-size: 24px;
+    }
+
+    .top-wrapper p {
+        font-size: 14px;
+    }
+
+    .header-right {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
