@@ -19,15 +19,45 @@ a {
 }
 
 /* ここからCSSを書いていきましょう */
+header {
+  background-color: rgba(34, 49, 52, 0.9);
+  height: 65px;
+  width: 100%;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+}
+
+header img {
+  float: left;
+  width: 124px;
+  margin-top: 20px;
+}
+
+.login {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.3);
+  line-height: 65px;
+  padding: 0 25px;
+  display: inline-block;
+  float: right;
+}
+
+.login:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.5s;
+}
+
 .top {
   background-image: url(https://prog-8.com/images/html/advanced/top.png);
   background-size: cover;
   padding: 180px 0 100px 0;
+  text-align: center;
 }
 
 .container {
   width: 1170px;
-  text-align: center;
+
   margin: auto;
 }
 
@@ -76,4 +106,87 @@ a {
 
 .twitter {
   background-color: #55acee;
+}
+
+.lesson {
+  height: 580px;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+.lesson h2 {
+  padding-top: 80px;
+  font-weight: normal;
+  color: #5f5d60;
+}
+
+.lesson-item {
+  float: left;
+  width: 25%;
+  margin-top: 50px;
+}
+
+.lesson-icon {
+  width: 80%;
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.icon-title {
+  position: absolute;
+  top: 90px;
+  width: 100%;
+  color: white;
+}
+
+.icon-text {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #b3aeb5;
+}
+
+.message {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.message h2 {
+  font-weight: normal;
+  color: #5f5d60;
+}
+
+.message h3 {
+  margin-bottom: 50px;
+}
+
+.development {
+  background-color: #5dca88;
+  padding: 15px 40px;
+  box-shadow: 0 7px #1a7940;
+  opacity: 0.8;
+}
+
+.development:active {
+  box-shadow: none;
+  position: relative;
+  top: 7px;
+}
+
+.development:hover {
+  opacity: 1;
+}
+
+footer {
+  border-top: 1px solid #eee;
+  padding: 30px 0;
+}
+
+footer img {
+  width: 124px;
+}
+
+footer p {
+  color: #b3aeb5;
+  font-size: 12px;
 }
