@@ -21,6 +21,9 @@ app.get('/', (req, res) => {
     connection.query(
       'SELECT * FROM items',
       (error, results) => {
+        if(error) {
+          console.log(error);
+        }
         res.render('index.ejs', {items: results});
       }
     );
@@ -35,6 +38,9 @@ app.get('/', (req, res) => {
       'INSERT INTO items (name) VALUES (?)',
       [req.body.itemName],
       (error, results) => {
+        if(error) {
+          console.log(error);
+        }
         res.redirect('/index');
       }
     );
@@ -45,6 +51,9 @@ app.get('/', (req, res) => {
       'DELETE FROM items WHERE id = ?',
       [req.params.id],
       (error, results) => {
+        if(error) {
+          console.log(error);
+        }
         res.redirect('/index');
       }
     );
@@ -55,6 +64,9 @@ app.get('/', (req, res) => {
         'SELECT * FROM items WHERE id = ?',
         [req.params.id],
         (error, results) => {
+          if(error) {
+            console.log(error);
+          }
           res.render('edit.ejs', {item: results[0]});
         }
       );
@@ -65,6 +77,9 @@ app.get('/', (req, res) => {
         'UPDATE items SET name = ? WHERE id = ?',
         [req.body.itemName, req.params.id],
         (error, results) => {
+          if(error) {
+            console.log(error);
+          }
           res.redirect('/index');
         }
       );
