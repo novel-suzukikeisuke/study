@@ -361,7 +361,7 @@ header.admin {
 }
 
 header.admin > p:after {
-  background-image: url("/img/wanko_admin.svg");
+  background-image: url("/imges/wanko.jpg");
 }
 
 header > p {

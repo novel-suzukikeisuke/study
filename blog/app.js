@@ -1,5 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
+const session = require('express-session');
 const app = express();
 
 app.use(express.static('public'));
@@ -12,7 +13,26 @@ const connection = mysql.createConnection({
   database: 'blog'
 });
 
-app.get('/', (req, res) => {
+app.use(
+    session({
+      secret: 'my_secret_key',
+      resave: false,
+      saveUninitialized: false,
+    })
+  );
+  
+  app.use((req, res, next) => {
+    if (req.session.userId === undefined) {
+      res.locals.username = 'ゲスト';
+      res.locals.isLoggedIn = false;
+    } else {
+      res.locals.username = req.session.username;
+      res.locals.isLoggedIn = true;
+    }
+    next();
+  });
+  
+  app.get('/', (req, res) => {
     res.render('top.ejs');
   });
   
@@ -39,26 +59,32 @@ app.get('/', (req, res) => {
   app.get('/login', (req, res) => {
     res.render('login.ejs');
   });
-
+  
   app.post('/login', (req, res) => {
     const email = req.body.email;
     connection.query(
-        'SELECT * FROM users WHERE email = ?',
-        [email],
-        (error, results) => {
-            if(results.length > 0){
-                if(req.body.password === results[0].password){
-                    console.log('認証に成功しました');
-                    res.redirect('/list');
-                } else {
-                    console.log('認証に失敗しました');
-                    res.redirect('/login');
-                }
-            } else {
-                res.redirect('/login');
-            }
+      'SELECT * FROM users WHERE email = ?',
+      [email],
+      (error, results) => {
+        if (results.length > 0) {
+          if (req.body.password === results[0].password){
+            req.session.userId = results[0].id;
+            req.session.username = results[0].username;
+            res.redirect('/list');
+          } else {
+            res.redirect('/login');
+          }    
+        } else {
+          res.redirect('/login');
         }
+      }
     );
+  });
+  
+  app.get('/logout', (req, res) => {
+    req.session.destroy((error)  => {
+      res.redirect('/list');
+    });
   });
   
   app.listen(3000);
