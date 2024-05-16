@@ -12,17 +12,19 @@
 
     <main>
       <div class="article">
+        <!--一般記事の表示-->
         <% if(article.category === 'all') { %>
             <h1><%= article.title %></h1>
             <p><%= article.content %></p>
         <% } %>
+        <!--限定記事の表示-->
         <% if(article.category === 'limited') { %>
-            <i>会員限定</i>
+            <i>会員限定</i> <!--バッジを表示-->
             <h1><%= article.title %></h1>
-            <% if (locals.isLoggedIn) { %>
+            <% if (locals.isLoggedIn) { %> <!--locals.isLoggedINの値がtrueの時限定記事の本文を表示する-->
                 <p><%= article.content %></p>
             <% } else { %>
-                <div class="article-login">
+                <div class="article-login"> <!--locals.isLoggedINの値がfalseの時はログインを促す内容を表示-->
                     <p>今すぐログインしよう！</p>
                     <p>記事の続きは<br>ログインすると読むことができます</p>
                     <img src="/images/login.jpg">

@@ -7,13 +7,14 @@
     <script src="/send_url.js"></script>
   </head>
   <body>
-
-    <%- include('header'); %>
+    <!--header.ejsを呼び出している-->
+    <%- include('header'); %> <!--※<%=ではないため注意-->
 
     <main>
       <ul class="list">
         <% articles.forEach((article) => { %>
           <li>
+            <!--限定記事の表示-->
             <% if(article.category === 'limited') { %>
                 <i>会員限定</i>
             <% } %>
