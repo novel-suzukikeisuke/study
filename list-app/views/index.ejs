@@ -21,20 +21,21 @@
           <span>買うもの</span>
         </div>
         <ul class="table-body">
-          <% items.forEach((item) => { %>
+          <!--forEachは配列の中の要素を1つずつ取り出して同じ処理をする-->
+          <% items.forEach((item) => { %> <!--renderメソッドに記述したことでオブジェクトのプロパティで値を使える-->
             <li>
               <div class="item-data">
-                <span class="id-column"><%= item.id %></span>
+                <span class="id-column"><%= item.id %></span> <!--<%= %>はブラウザに表示できる-->
                 <span class="name-column"><%= item.name %></span>
               </div>
               <div class="item-menu">
-                <form action="/delete/<%= item.id %>" method="post">
+                <form action="/delete/<%= item.id %>" method="post"> <!--メモのidを受け渡すために送信先URLにメモのidを含める-->
                   <input type="submit" value="削除">
                 </form>
                 <a href="/edit/<%= item.id %>">編集</a>
               </div>
             </li>
-          <% }) %>
+          <% }) %> <!--<% %>は変数の定義等に使用-->
         </ul>
       </div>
     </div>

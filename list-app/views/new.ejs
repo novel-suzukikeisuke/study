@@ -16,8 +16,10 @@
       </div>
       <div class="item-form-wrapper">
         <p class="form-label">買うもの</p>
-        <form action="/create" method="post">
-            <input type="text" name="itemName">
+        <!--フォームを作るときは<form>タグを使用-->
+        <!--postでリクエストするときはフォームを使う-->
+        <form action="/create" method="post"> <!--actionに送信先のURL, methodにルーティングに合わせたメソッドを指定-->
+            <input type="text" name="itemName"> <!--nameを追加することでサーバー側に情報を送信できる-->
             <input type="submit" value="作成する">
         </form>
       </div>
