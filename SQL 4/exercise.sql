@@ -109,3 +109,32 @@ WHERE sales_records.item_id = (
     WHERE name = "サンダル"
 )
 GROUP BY users.id, users.name;
+
+--練習問題
+SELECT items.gender, SUM(items.price) AS "売上額"
+FROM sales_records
+JOIN items
+ON sales_records.item_id = items.id
+GROUP BY items.gender;
+
+SELECT items.id, items.name, SUM(items.price) AS "売上額"
+FROM sales_records
+JOIN items
+ON sales_records.item_id = items.id
+GROUP BY items.id, items.name
+ORDER BY SUM(items.price) DESC
+LIMIT 5;
+
+SELECT items.id, items.name, SUM(items.price) AS "売上額"
+FROM sales_records
+JOIN items
+ON sales_records.item_id = items.id
+GROUP BY items.id, items.name
+HAVING SUM(items.price) > (
+    SELECT items.name, SUM(items.price)
+    FROM sales_records
+    JOIN items
+    ON sales_records.item_id = items.id
+    GROUP BY items.name
+    HAVING name = "グレーパーカー"
+);
